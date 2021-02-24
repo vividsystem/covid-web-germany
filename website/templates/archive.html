@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Home | Corona API{% endblock %}
+{% block content %}
+{% if entries%}
+  <table class="entrytable">
+    <tr>
+      <th>Datum</th>
+      <th>Bundesland</th>
+      <th>Fälle</th>
+      <th>Neue Fälle</th>
+      <th>Fälle der letzten 7 Tage</th>
+      <th>7 Tage Incidenz</th>
+    </tr>
+    
+    {% for entry in entries %}
+    <tr>
+      <th>{{ entries[entry]["date"] }}</th>
+      <th>{{ entries[entry]["state"] }}</th>
+      <th>{{ entries[entry]["cases"] }}</th>
+      <th>{{ entries[entry]["new_cases"] }}</th>
+      <th>{{ entries[entry]["cases_last7days"] }}</th>
+      <th>{{ entries[entry]["7day_incidence"] }}</th>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1 style="margin-left: 5vw;"> No entries yet! </h1>
+  </table>
+    {% endif %}
+
+
+
+  <!-- <div style="width: 60%;">
+    <canvas id="first_chart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="{{url_for("static", filename="js/charts.js")}}"></script>
+  <script>
+    generateChart("radar", {{lolw}})
+  </script> -->
+
+{% endblock content %}

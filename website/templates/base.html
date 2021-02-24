@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-height, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!--<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">-->
+  <link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/master.css")}}"/>
   <title>{% block title %}{% endblock title%} </title>
-  <link rel="stylesheet" href="{{url_for("static", filename="css/master.css")}}"/>
-  <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
-</head>
+  </head>
 <body>
+  <nav class="navbar">
+    <div id="navbar" class="navbar-elements">
+      <a class="nav-item" href="/home">Home</a>
+      <a class="nav-item" href="/archive">Archive</a>
+      <a class="nav-item" href="/docs">Docs</a>
+    </div>
+  </nav>
   {% block content %}{% endblock content %}
 </body>
 </html>
