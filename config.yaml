@@ -1,1 +1,2 @@
 webdriver_path: "~/.bin/chromedriver/chromedriver"
+website_path: "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html"
