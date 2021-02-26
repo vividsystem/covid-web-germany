@@ -4,12 +4,12 @@
 {% if entries%}
   <table class="entrytable">
     <tr>
-      <th>Datum</th>
-      <th>Bundesland</th>
-      <th>Fälle</th>
-      <th>Neue Fälle</th>
-      <th>Fälle der letzten 7 Tage</th>
-      <th>7 Tage Incidenz</th>
+      <th>Date</th>
+      <th>State(Bundesland)</th>
+      <th>Cases</th>
+      <th>new Cases</th>
+      <th>Cases last 7 days</th>
+      <th>7 Day Incidence</th>
     </tr>
     
     {% for entry in entries %}
@@ -19,7 +19,7 @@
       <th>{{ entries[entry]["cases"] }}</th>
       <th>{{ entries[entry]["new_cases"] }}</th>
       <th>{{ entries[entry]["cases_last7days"] }}</th>
-      <th>{{ entries[entry]["7day_incidence"] }}</th>
+      <th>{{ entries[entry]["incidence_last_7days"] }}</th>
     </tr>
     {% endfor %}
     {% else %}

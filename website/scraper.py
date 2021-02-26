@@ -1,23 +1,20 @@
+#!/usr/bin/env python3
 from selenium import webdriver
 from os import getenv
-from yaml import load, FullLoader
-from sqlite3 import connect
-from datetime import datetime
-from time import strptime, strftime
+from . import db, config
 
-website_path = "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html"
 def get_corona_info():
-  config = load(open("./config.yaml"), Loader=FullLoader)
   options = webdriver.ChromeOptions()
   options.add_argument('headless')
   web_driver_path = config["webdriver_path"]
+  website_path = config["website_path"]
   driver = webdriver.Chrome(chrome_options=options)
   driver.get(website_path)
 
 
   elements = driver.find_elements_by_xpath("/html/body/div[1]/div[1]/div[2]/div[2]/div[3]/div/div/div[1]/table/tbody/tr")
   scrapped_info = list(map(lambda x: x.text, elements))
-  scrapped_info = [x.replace('\xad', '').replace('\n','') for x in scrapped_info]
+  scrapped_info = [x.replace('\xad', '').replace('\n','').replace('ü', 'ue').replace('ä', 'ae') for x in scrapped_info]
   dict_corona = {}
   for x in scrapped_info:
     formatted_info = x.replace(".", "").split(' ')
@@ -29,11 +26,7 @@ def get_corona_info():
 def update_db(info):
   from .models import Entry
   for i in info:
-    print(i)
-
-
-
-
-if __name__ == "__main__":
-  info = get_corona_info()
-  update_db(info)
+    
+    newEntry = Entry(bundesland=str(i), cases=int(info[i][0]), new_cases=int(info[i][1]), cases_last_7days=int(info[i][2]), incidence_last_7days=int(info[i][3]), deaths=int(info[i][4]))
+    db.session.add(newEntry)
+    db.session.commit()

@@ -1,16 +1,35 @@
 {% extends "base.html" %}
 {% block title %}Home | Corona API{% endblock %}
+{% block head%} 
+<link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/home.css")}}"/>
+{% endblock head%}
 {% block content %}
-  
+    <h1>Todays data</h1>
+    {% for entry in entries %}
+      <button type="button" class="collapsible">{{entry}}</button>
+      <div class="content">
+        <h6>Cases: {{entries[entry]["cases"]}}</h6>
+        <h6>new Cases: {{entries[entry]["new_cases"]}}</h6>
+        <h6>Cases last 7 days: {{entries[entry]["cases_last7days"]}}</h6>
+        <h6>7 day incidence: {{entries[entry]["incidence_last_7days"]}}</h6>
+        <h6>Deaths: {{entries[entry]["deaths"]}}</h6>
+      </div>
+    {% endfor %}
 
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
 
-  <!-- <div style="width: 60%;">
-    <canvas id="first_chart"></canvas>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="{{url_for("static", filename="js/charts.js")}}"></script>
-  <script>
-    generateChart("radar", {{lolw}})
-  </script> -->
-
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+    </script>
 {% endblock content %}
