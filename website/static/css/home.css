@@ -1,14 +1,31 @@
+body {
+  overflow-x:hidden;
+}
 
+.header {
+  width: 100%;
+  left:0;
+  right: 0;
+  padding-left: 2vw;
+}
+
+.header-element {
+  font-weight: 1000;
+}
 .collapsible {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: #eee;
   color: #444;
   cursor: pointer;
   width: 100%;
-  height: 2vh;
+  height: 4vh;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 1vh;
+  font-size: 2vh;
 }
 
 

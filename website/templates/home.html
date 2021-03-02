@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Home | Corona API{% endblock %}
 {% block head%} 
-<link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/home.css")}}"/>
+
+  <link rel="stylesheet" type="text/css" href="{{url_for("static", filename="css/home.css")}}"/>
+
 {% endblock head%}
 {% block content %}
-    <h1>Todays data</h1>
-    {% for entry in entries %}
-      <button type="button" class="collapsible">{{entry}}</button>
-      <div class="content">
-        <h6>Cases: {{entries[entry]["cases"]}}</h6>
-        <h6>new Cases: {{entries[entry]["new_cases"]}}</h6>
-        <h6>Cases last 7 days: {{entries[entry]["cases_last7days"]}}</h6>
-        <h6>7 day incidence: {{entries[entry]["incidence_last_7days"]}}</h6>
-        <h6>Deaths: {{entries[entry]["deaths"]}}</h6>
-      </div>
-    {% endfor %}
+  <div class="header">
+    <h1 class="header-element">Todays Data</h1>
+  </div>
+  {% for entry in entries %}
+    <button type="button" class="collapsible">{{entry}}</button>
+    <div class="content">
+      <h6>Cases: {{entries[entry]["cases"]}}</h6>
+      <h6>new Cases: {{entries[entry]["new_cases"]}}</h6>
+      <h6>Cases last 7 days: {{entries[entry]["cases_last7days"]}}</h6>
+      <h6>7 day incidence: {{entries[entry]["incidence_last_7days"]}}</h6>
+      <h6>Deaths: {{entries[entry]["deaths"]}}</h6>
+    </div>
+  {% endfor %}
 
     <script>
       var coll = document.getElementsByClassName("collapsible");

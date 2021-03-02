@@ -15,11 +15,14 @@ def create_app():
   app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///../db/{DB_NAME}"
   db.init_app(app)
   app.app_context().push()
+
   from .pages import pages
   app.register_blueprint(pages, url_prefix="/")
 
-  from .models import Entry
+  from .api import api
+  app.register_blueprint(api, url_prefix="/api/")
 
+  from .models import Entry
   create_db(app)
 
   return app
