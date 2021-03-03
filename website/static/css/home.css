@@ -1,5 +1,5 @@
 body {
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 .header {
@@ -12,6 +12,7 @@ body {
 .header-element {
   font-weight: 1000;
 }
+
 .collapsible {
   margin-top: 0;
   margin-bottom: 0;
