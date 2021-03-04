@@ -9,7 +9,6 @@ Corona API is a Website/Api showing the data of the RKI
 
 # Installation
 
-
 ## MacOS/Linux
 Things you need installed on your machine:
 - sqlite3
@@ -26,7 +25,7 @@ pip3 install -r requirements.txt
 ```bash
 git clone https://github.com/vividsystem/corona_api.git
 cd corona_api
-docker build --tag corona-api .
+docker build --tag corona-api -p 8080:80 .
 ```
 
 
