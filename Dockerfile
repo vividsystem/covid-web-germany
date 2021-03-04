@@ -1,5 +1,7 @@
 FROM archlinux:latest
 WORKDIR /app
+EXPOSE 8080
+
 COPY requirements.txt requirements.txt
 
 RUN pacman -Sy
