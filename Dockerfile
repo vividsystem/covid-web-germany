@@ -5,8 +5,8 @@ EXPOSE 8080
 COPY requirements.txt requirements.txt
 
 RUN pacman -Sy
-RUN pacman -S sqlite
-RUN pacman -S python
+RUN yes | pacman -S sqlite
+RUN yes | pacman -S python
 
 COPY . .
 RUN pip3 install -r requirements.txt
