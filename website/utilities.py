@@ -27,10 +27,12 @@ def get_formatted_info():
     update_db(info)
   for i in Entry.query.all():
     if str(i.date).startswith(str(datetime.now())[0:10]):
-      entries[i.bundesland] = {"cases": i.cases,
-                               "new_cases": i.new_cases,
-                               "cases_last7days": i.cases_last_7days,
-                               "incidence_last_7days": i.incidence_last_7days,
-                               "deaths": i.deaths
+      entries[i.bundesland] = {
+                              "date": i.date,
+                              "cases": i.cases,
+                              "new_cases": i.new_cases,
+                              "cases_last7days": i.cases_last_7days,
+                              "incidence_last_7days": i.incidence_last_7days,
+                              "deaths": i.deaths
                               }
   return entries

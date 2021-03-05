@@ -25,7 +25,7 @@ pip3 install -r requirements.txt
 ```bash
 git clone https://github.com/vividsystem/corona_api.git
 cd corona_api
-docker build --tag corona-api -p 8080:80 .
+docker build --tag corona-api .
 ```
 
 
