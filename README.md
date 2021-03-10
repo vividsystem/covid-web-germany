@@ -21,7 +21,8 @@ pip3 install -r requirements.txt
 ```
 
 ## Docker
-
+Requirements:
+- sqlite3
 ```bash
 git clone https://github.com/vividsystem/corona_api.git
 cd corona_api
