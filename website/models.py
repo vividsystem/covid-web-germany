@@ -12,6 +12,3 @@ class Entry(db.Model):
   cases_last_7days = db.Column(db.Integer)
   incidence_last_7days = db.Column(db.Integer)
   deaths = db.Column(db.Integer)
-
-  #def __repr__(self):
-  #  print(f"ID: {id}, date: {date}, cases:{cases}, new cases: {new_cases}, cases lasz 7 days: {cases_last_7days}, 7 day incidence: {incidence_last_7days}, deaths: {deaths}")
