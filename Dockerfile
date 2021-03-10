@@ -1,12 +1,6 @@
-FROM archlinux:latest
-WORKDIR /app
+FROM python:3.9-slim-buster
+WORKDIR .
 EXPOSE 8080
-
-COPY requirements.txt requirements.txt
-
-RUN pacman -Sy
-RUN yes | pacman -S sqlite
-RUN yes | pacman -S python
 
 COPY . .
 RUN pip3 install -r requirements.txt
