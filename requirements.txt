@@ -13,3 +13,4 @@ webencodings==0.5.1
 websockets==8.1
 Werkzeug==1.0.1
 yamlreader==3.0.4
+selenium==3.141.0
