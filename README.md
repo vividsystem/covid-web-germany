@@ -17,6 +17,7 @@ Things you need installed on your machine:
 ```bash
 git clone https://github.com/vividsystem/corona_api.git
 cd corona_api
+mkdir db
 pip3 install -r requirements.txt
 ```
 
@@ -26,6 +27,7 @@ Requirements:
 ```bash
 git clone https://github.com/vividsystem/corona_api.git
 cd corona_api
+mkdir db
 docker build --tag corona-api .
 ```
 
