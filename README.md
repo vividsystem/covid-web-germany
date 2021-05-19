@@ -21,19 +21,6 @@ mkdir db
 pip3 install -r requirements.txt
 ```
 
-## Docker
-Requirements:
-- sqlite3
-```bash
-git clone https://github.com/vividsystem/corona_api.git
-cd corona_api
-mkdir db
-docker build --tag corona-api .
-```
-
-
-
-
 # Usage
 ```
   python3 main.py 
