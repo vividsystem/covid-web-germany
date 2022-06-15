@@ -4,7 +4,7 @@
 Corona API is a Website/Api showing the data of the RKI
 
 
-## This is a MVP and not ment for production deployment!
+## This is a proof-of-concept and not ment for production deployment!
 
 
 # Installation
